@@ -1,0 +1,179 @@
+###
+// USER REGISTRATION //
+POST http://localhost:5000/users/register
+Content-Type: application/json
+
+{
+    "name":"Adnann",
+    "password":"newPassword"
+}
+
+###
+// USER LOGIN //
+POST http://localhost:5000/users/login
+Content-Type: application/json
+
+{
+    "name":"adnan",
+    "password":"123"
+}
+
+###
+// USER LOGOUT //
+DELETE http://localhost:5000/users/logout
+Content-Type: application/json
+
+{
+    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRuYW5uIiwiaWF0IjoxNjEzNTYzOTY5fQ.f74iQSj3vlmYMiPm7pGxFLs8mkwWRcUZqVUAf5Chwv0"
+}
+
+###
+// REFRESH ACCESS TOKEN //
+POST http://localhost:5000/users/refreshtoken
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTM2Nzg2NDIsImV4cCI6MTYxMzY3ODk0Mn0.LVX9LqZcXoIa-RBeCp4z6qwy7e_sAl2Zo4COtKYDR_Q
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTM2Nzg2NDJ9.ZGNHyAgUvfZ7Iuo25TAcqgtAREZxpn4YFNX4CWESc00"
+}
+
+###
+// GET LIST OF BOOKS //
+GET http://localhost:5000/books
+
+###
+// CREATE NEW BOOK //
+POST http://localhost:5000/books
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTM5MTMwNjMsImV4cCI6MTYxMzkxMzk2M30.KPfOPiqdj1hhl2kMM5_0gMZSICqRSRmsssWe4LusCZU
+
+{
+        "isbn": "0997714565",
+        "title": "To Kill a Mockingbird, by Harper Lee",
+        "pages":null,
+        "published":null,
+        "image": ""
+}
+
+###
+// GET SINGLE BOOK //
+GET http://localhost:5000/books/bb441b0b-34db-4c2a-aaac-6eaed07628ea
+
+###
+// UPDATE SINGLE BOOK //
+PUT http://localhost:5000/books/bb441b0b-34db-4c2a-aaac-6eaed07628ea
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTM5MTMwNjMsImV4cCI6MTYxMzkxMzk2M30.KPfOPiqdj1hhl2kMM5_0gMZSICqRSRmsssWe4LusCZU
+
+{
+    "title": "UUpdateBook",
+    "pages":null,
+    "published":null,
+    "isbn":"",
+    "image":""
+}
+
+###
+// DELETE SINGLE BOOK //
+DELETE http://localhost:5000/books/7db8e6af-7b9b-4695-b19a-63806c3f55ae
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTM5MTMwNjMsImV4cCI6MTYxMzkxMzk2M30.KPfOPiqdj1hhl2kMM5_0gMZSICqRSRmsssWe4LusCZU
+
+###
+// GET LIST OF AUTHORS FOR {ID} BOOK //
+GET http://localhost:5000/books/00ecc6c2-85dc-42a5-b985-e7b62134bc7f/authors
+
+###
+// ADD NEW AUTHOR TO {ID} BOOK  //
+POST http://localhost:5000/books/00ecc6c2-85dc-42a5-b985-e7b62134bc7f/authors
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTQxOTQxMDUsImV4cCI6MTYxNDE5NTAwNX0.RPvEPiV-3IRu2E73I9EgsOykrBtA4cZHbMc-5mFzhsY 
+
+{ 
+    "firstName": "Miki Mous",
+    "lastName": "Harper",
+    "dateOfBirth": "2004-08-04",
+    "image":""
+}
+
+###
+// DELETE AUTHOR {ID} FROM BOOK {ID} //
+DELETE http://localhost:5000/books/00ecc6c2-85dc-42a5-b985-e7b62134bc7f/authors/285c591b-a81f-4c5b-848b-f51f7cc2ef8d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTQyMDYxMjgsImV4cCI6MTYxNDIwNzAyOH0.DWrHwnNzO1dwX3F_uESicNw0pmmNeeoiB_MktnBqP4o
+
+###
+// ADD EXISTING AUTHOR {ID} TO BOOK {ID} - CONNECT BOOK {ID} WITH AUTHOR {ID} //
+POST http://localhost:5000/books/00ecc6c2-85dc-42a5-b985-e7b62134bc7f/authors/4d05f9c2-7358-4304-a0d1-a4943657373c
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTQ1NTEzNDMsImV4cCI6MTYxNDU1MjI0M30.j53r2EAHNZQp1OInHEz2LzJHsPJpit_PDykUQD3TcXA 
+
+###
+// GET LIST OF AUTHORS //
+GET http://localhost:5000/authors
+
+###
+// CREATE NEW AUTHOR //
+POST http://localhost:5000/authors
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTQwMDE2OTEsImV4cCI6MTYxNDAwMjU5MX0.V30SfAm1n02QQwOBZK9xXD-0M5blELr8k16LgmbYh3M 
+
+{ 
+    "firstName": "John Harper",
+    "lastName": "Harper",
+    "dateOfBirth": "2004-08-04",
+    "image":""
+}
+
+###
+// GET SINGLE AUTHOR //
+GET http://localhost:5000/authors/0b6b6ebf-31d5-484b-a350-4da022e36e46
+
+###
+// UPDATE SINGLE AUTHOR //
+PUT http://localhost:5000/authors/09e2be15-5b91-400a-921c-914fe627eaf3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTM5NDQzODMsImV4cCI6MTYxMzk0NTI4M30.0M2T11ncZ_Vi3FmdTkhBefmSO3mOdCaxP4MePswXgso
+
+{
+    "firstName": "John Lee",
+    "lastName":"",
+    "dateOfBirth": "1989-04-12",
+    "image": ""
+}
+
+###
+// DELETE SINGLE AUTHOR //
+DELETE http://localhost:5000/authors/93810f25-8920-4974-b9e9-a7bf8c13db08
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTQwMDM4NzUsImV4cCI6MTYxNDAwNDc3NX0.NFJYsymQH2Y7xdviJ07R32P-kjdo2F_12HgEJGUu2_o
+
+
+###
+// GET LIST OF BOOKS FOR {ID} AUTHOR //
+GET http://localhost:5000/authors/285c591b-a81f-4c5b-848b-f51f7cc2ef8d/books
+
+###
+// ADD NEW BOOK TO {ID} AUTHOR  //
+POST http://localhost:5000/authors/285c591b-a81f-4c5b-848b-f51f7cc2ef8d/books
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTQyMDI1NTMsImV4cCI6MTYxNDIwMzQ1M30.BNHmDQoPsQliGNXVS0WcG8D2RZ6fXToNOdNhY0VaVW8 
+
+{ 
+    "isbn": "0997714565",
+    "title": "To Kill a Mockingbird, by Harper Lee",
+    "pages":null,
+    "published":null,
+    "image": ""
+}
+
+###
+// ADD EXISTING BOOK {ID} TO AUTHOR {ID} - CONNECT AUTHOR {ID} WITH BOOK {ID} //
+POST http://localhost:5000/authors/00ecc6c2-85dc-42a5-b985-e7b62134bc7f/books/4d05f9c2-7358-4304-a0d1-a4943657373c
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTQ1NTEzNDMsImV4cCI6MTYxNDU1MjI0M30.j53r2EAHNZQp1OInHEz2LzJHsPJpit_PDykUQD3TcXA
+
+###
+// DELETE BOOK {ID} FROM AUTHOR {ID} //
+DELETE http://localhost:5000/authors/2323babc-b0bb-40b0-b1f1-b66f4dfe4ff2/books/00ecc6c2-85dc-42a5-b985-e7b62134bc7f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRuYW4iLCJpYXQiOjE2MTQyMDc2MjksImV4cCI6MTYxNDIwODUyOX0.8FginfcjFmpLZQ_ObLPJFSaB0vaMxoKeS8xL6qtU6yc
+
+
+

@@ -1,0 +1,64 @@
+.section {
+    margin-top:7.5rem;
+}
+
+.card {
+    width:90%;
+    margin:auto; 
+    border:none;
+}
+
+.cardheader{
+    position: fixed;
+    width:90%;
+    left:5%;
+    z-index:1;
+    padding: .5rem;
+    border:none;
+    background-color:#F5F5F5;   
+}
+
+.cardheader .col {
+    text-align: center;
+    padding: 5px 0px;
+}
+
+.cardbody{
+   padding:0;
+   margin-top:3.1rem;
+   z-index: 0;
+}
+
+.cardbody .row {
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    align-items: center;
+ }
+
+.cardbody button {
+    margin-left: .5rem;
+}
+
+.cardbody .col {   
+    text-align: center;
+    padding: 5px 0px;
+}
+
+.cardbody .col:first-child span {
+    display: block;
+    margin-left:1rem;  
+}
+
+
+@media only screen and (max-width:576px) {
+    .col:nth-child(3) {
+        display:none;
+    }
+    
+}
+
+@media only screen and (max-width:992px) {
+    .col button {
+        display: block;
+        margin: .5rem auto;
+    }
+}

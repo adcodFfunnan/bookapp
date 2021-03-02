@@ -1,0 +1,70 @@
+/*  NAVBAR  */
+.section {
+    background-color:rgba(255,255,255);
+    width: 90%;
+    position: fixed;
+    top:0;
+    width: 90%;
+    left:5%;
+    z-index: 2;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.section .navbar {
+    background-color: #563d7c;
+}
+.section .navbar .right.navbar-nav .nav-link {
+    padding: 0;
+}
+.section .navbar .right.navbar-nav button {
+    margin-left:.5rem;
+}
+.section .navbar .right.navbar-nav .dropdown-menu button {
+    margin-left: 0;
+}
+.section .dropdown-menu{
+    padding: 1rem .5rem;
+    min-width: 30rem;
+    top:130%;
+}
+.section .dropdown-menu .formLogIn .form-text {
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #495057;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+}
+.section .dropdown-menu .formLogIn input {
+    margin-bottom: .5rem;
+}
+.section .dropdown-menu .formLogIn button {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+.alert {
+    z-index:3;
+    width: 40%;
+    left:30%;
+    position: fixed;
+    top:0;
+}
+.alert-dismissible .close {
+    padding: 0rem 1.25rem;
+}
+
+@media only screen and (max-width:768px) {
+    .section .dropdown-menu {
+        min-width: 10rem;
+    }
+    .section .navbar .right.navbar-nav button {
+        margin-left:0;
+        margin-top:.2rem;
+    }
+    .section .navbar .right.navbar-nav button.addNewBook,
+    .section .navbar .right.navbar-nav button.logout {
+        align-self: flex-start; 
+    }
+
+}
