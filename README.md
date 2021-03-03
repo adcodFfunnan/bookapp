@@ -15,13 +15,13 @@ Guests (not logged-in users) can view the data. It is possible to connect books 
 	<code class="language-bash">git clone https://github.com/adcodFfunnan/bookapp.git</code>
 </pre>
 
-<p>next, navigate to the CLIENT folder and install dependencies</p>
+<p>next, navigate to the client folder and install dependencies</p>
 <pre>
 	<code class="language-bash"> cd bookapp/client</code>
     <code class="language-bash">     npm install</code>
 </pre>
 
-<p>next, navigate to the SERVER folder and install dependencies</p>
+<p>next, navigate to the server folder and install dependencies</p>
 <pre>
 	<code class="language-bash"> cd bookapp/server</code>
     <code class="language-bash">     npm install</code>
@@ -30,13 +30,13 @@ Guests (not logged-in users) can view the data. It is possible to connect books 
 <p>next, configure your MySQL server according to .env file in the server folder </p>
 <p>it is not necessary to manually create a database and tables, it will be created in the next step</p>
 
-<p>next, navigate to the SERVER folder and type</p>
+<p>next, navigate to the server folder and type</p>
 <pre>
 	<code class="language-bash"> npm run config</code>
 </pre>
 <p>this command will create a database and tables on your server</p>
 
-<p>if all went well, go to the CLIENT and SERVER and type</p>
+<p>if all went well, go to the client and the server and type</p>
 <pre>
 	<code class="language-bash"> npm start</code>
 </pre>
