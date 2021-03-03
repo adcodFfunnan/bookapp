@@ -18,13 +18,13 @@ Guests (not logged-in users) can view the data. It is possible to connect books 
 <p>next, navigate to the client folder and install dependencies</p>
 <pre>
 	<code class="language-bash"> cd bookapp/client</code>
-    <code class="language-bash">    npm install</code>
+    <code class="language-bash">     npm install</code>
 </pre>
 
 <p>next, navigate to the server folder and install dependencies</p>
 <pre>
 	<code class="language-bash"> cd bookapp/server</code>
-    <code class="language-bash">    npm install</code>
+    <code class="language-bash">     npm install</code>
 </pre>
 
 <p>next configure your MySQL server according to .env file in the server folder </p>
