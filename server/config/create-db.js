@@ -3,31 +3,29 @@ const { books, authors } = require('./initialData.js')
 
 
 
-const config = JSON.parse(process.env.CONFIGURATION)
-
 const setdatabase = async () => {
     let knex = require('knex')({
-        client: config.client,
+        client: "mysql",
         connection: {
-            host: config.host,
-            user: config.user,
-            password: config.password
+            host: process.env.HOST,
+            user: process.env.USER,
+            password: process.env.PASSWORD
         }
     })
 
     try {
-        await knex.raw(`CREATE DATABASE ${config.database}`)
-        console.log(`Database ${config.database} created successfully`)
+        await knex.raw(`CREATE DATABASE ${process.env.DATABASE}`)
+        console.log(`Database ${process.env.DATABASE} created successfully`)
     } catch (err) { console.log(err.message) }
 
     await knex.destroy()
     knex = require('knex')({
-        client: config.client,
+        client: "mysql",
         connection: {
-            host: config.host,
-            user: config.user,
-            password: config.password,
-            database: config.database
+            host: process.env.HOST,
+            user: process.env.USER,
+            password: process.env.PASSWORD,
+            database: process.env.DATABASE
         }
     })
 
@@ -71,7 +69,7 @@ const setdatabase = async () => {
         console.log("Table 'books_authors' created successfully")
 
 
-        console.log(`The database ${config.database} was successfully set up. Type 'npm start' to launch the application.`)
+        console.log(`The database ${process.env.DATABASE} was successfully set up. Type 'npm start' to launch the application.`)
 
     } catch (err) { console.log(err.message) }
 
